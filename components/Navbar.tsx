@@ -5,6 +5,7 @@ import Image from "next/image";
 import {NAV_LINKS} from "@/constants";
 import Button from "@/components/Button";
 import {useState} from "react";
+import { Icon } from '@iconify/react';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,6 +50,9 @@ const Navbar = () => {
                 isMenuOpen && (
                     <div className="absolute top-20 left-0 right-0 bg-white shadow-md py-5 px-10 z-30 flex flex-col gap-5">
                         <ul className="flex flex-col gap-6">
+                            <li className="relative">
+                                <Icon icon="material-symbols:close" className="absolute top-0 right-0 m-3 cursor-pointer text-2xl"  onClick={() => setIsMenuOpen(false)}/>
+                            </li>
                             {NAV_LINKS.map((link) => {
                                 return (
                                     <Link
@@ -71,6 +75,7 @@ const Navbar = () => {
                     </div>
                 )
             }
+
 
         </nav>
     );
